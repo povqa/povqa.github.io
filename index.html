@@ -303,25 +303,65 @@
             color: white;
             opacity: 0.8;
         }
+
+        /* ----- STYLES ADDED FOR QUALITATIVE RESULTS ----- */
+        .qualitative-grid {
+            display: grid;
+            /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
+            gap: 30px;
+        }
+        .qual-figure {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .figure-placeholder {
+            padding: 25px;
+        }
+        .placeholder-content h4 {
+            font-size: 1.2em;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .placeholder-content p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .placeholder-content img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+        .figure-caption {
+            padding: 25px;
+            background: rgba(102, 126, 234, 0.05);
+            font-size: 1em;
+            line-height: 1.7;
+            color: #555;
+            border-top: 1px solid #eee;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header Section -->
         <div class="header">
             <h1 class="title">POVQA</h1>
             <p class="subtitle">Preference-Optimized Video Question Answering with Rationales for Data Efficiency</p>
             <div class="venue">WACV 2026 Applications Track</div>
-            <div class="authors">Anonymous Submission #3240</div>
+            <div class="authors">Anonymous Submission </div>
             <div class="links">
-                <a href="#" class="link-btn">📄 Paper</a>
-                <a href="#" class="link-btn">💻 Code</a>
-                <a href="#" class="link-btn">🎥 Demo</a>
-                <a href="#" class="link-btn">📊 Dataset</a>
+                <a href="#" class="link-btn">📄 Paper (coming soon)</a>
+                <a href="#" class="link-btn">💻 Code (available to reviewers atm)</a>
+                <a href="#" class="link-btn">🎥 Demo (coming soon)</a>
+                <a href="#" class="link-btn">📊 Dataset (click to download)</a>
             </div>
         </div>
 
-        <!-- Abstract Section -->
         <div class="content-section">
             <h2 class="section-title">Abstract</h2>
             <p class="abstract">
@@ -329,7 +369,6 @@
             </p>
         </div>
 
-        <!-- Key Results -->
         <div class="content-section">
             <h2 class="section-title">Key Results</h2>
             <div class="results-grid">
@@ -343,16 +382,71 @@
                 </div>
                 <div class="result-card">
                     <div class="result-number">64.7%</div>
-                    <div class="result-label">TVQA Zero-shot</div>
+                    <div class="result-label">TVQA Zero-shot (SFT/DPO on ReasonVQA)</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">69.7%</div>
+                    <div class="result-label">TVQA Zero-shot (Pooling Only)</div>
                 </div>
                 <div class="result-card">
                     <div class="result-number">239</div>
                     <div class="result-label">Training Samples</div>
                 </div>
+                <div class="result-card">
+                    <div class="result-number">12</div>
+                    <div class="result-label">Genres of movies covered</div>
+                </div>
             </div>
         </div>
 
-        <!-- Method Overview -->
+        <div class="content-section">
+            <h2 class="section-title">Qualitative Results</h2>
+            <p style="font-size: 1.1em; color: #666; margin-bottom: 30px; text-align: center;">
+                Representative examples showing POVQA's reasoning capabilities and temporal understanding across different video contexts
+            </p>
+            
+            <div class="qualitative-grid">
+                <div class="qual-figure">
+                    <div class="figure-placeholder">
+                        <div class="placeholder-content">
+                            <h4>Example 1: Character Interaction</h4>
+                            <p>Multi-character dialogue scene with temporal pooling visualization</p>
+                            <img src="figs/qual1.png" alt="Example 1: Character Interaction">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qual-figure">
+                    <div class="figure-placeholder">
+                        <div class="placeholder-content">
+                            <h4>Example 2: Action Sequence</h4>
+                            <p>Motion-heavy scene with blend blur pooling effectiveness</p>
+                            <img src="figs/qual2.png" alt="Example 2: Action Sequence">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qual-figure">
+                    <div class="figure-placeholder">
+                        <div class="placeholder-content">
+                            <h4>Example 3: Temporal Reasoning</h4>
+                            <p>Long sequence requiring understanding of temporal relationships</p>
+                            <img src="figs/qual3.png" alt="Example 3: Temporal Reasoning">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qual-figure">
+                    <div class="figure-placeholder">
+                        <div class="placeholder-content">
+                            <h4>Example 4: Cross-Modal Understanding</h4>
+                            <p>Short scene with both textual and visual cues</p>
+                            <img src="figs/qual4.png" alt="Example 4: Cross-Modal Understanding">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="content-section">
             <h2 class="section-title">Method Overview</h2>
             <div class="method-overview">
@@ -374,7 +468,6 @@
             </div>
         </div>
 
-        <!-- Pooling Methods -->
         <div class="content-section">
             <h2 class="section-title">Temporal Pooling Operators</h2>
             <div class="pooling-methods">
@@ -397,7 +490,6 @@
             </div>
         </div>
 
-        <!-- Architecture Flow -->
         <div class="content-section">
             <h2 class="section-title">Architecture Pipeline</h2>
             <div class="architecture-flow">
@@ -434,7 +526,6 @@
             </div>
         </div>
 
-        <!-- Results Comparison -->
         <div class="content-section">
             <h2 class="section-title">Performance Comparison</h2>
             <div class="comparison-table">
@@ -475,7 +566,6 @@
             </div>
         </div>
 
-        <!-- Key Contributions -->
         <div class="content-section">
             <h2 class="section-title">Key Contributions</h2>
             <div class="contributions">
@@ -498,73 +588,7 @@
             </div>
         </div>
 
-        <!-- Qualitative Results -->
-        <div class="content-section">
-            <h2 class="section-title">Qualitative Results</h2>
-            <p style="font-size: 1.1em; color: #666; margin-bottom: 30px; text-align: center;">
-                Representative examples showing POVQA's reasoning capabilities and temporal understanding across different video contexts
-            </p>
-            
-            <div class="qualitative-grid">
-                <div class="qual-figure">
-                    <div class="figure-placeholder">
-                        <div class="placeholder-content">
-                            <h4>Example 1: Character Interaction</h4>
-                            <p>Multi-character dialogue scene with temporal pooling visualization</p>
-                            <div class="placeholder-img">Figure 1 - Upload your image here</div>
-                        </div>
-                    </div>
-                    <div class="figure-caption">
-                        <strong>Question:</strong> "Who is speaking in this conversation and what are they discussing?"<br>
-                        <strong>POVQA Reasoning:</strong> Based on temporal pooling of dialogue scenes and visual cues...
-                    </div>
-                </div>
 
-                <div class="qual-figure">
-                    <div class="figure-placeholder">
-                        <div class="placeholder-content">
-                            <h4>Example 2: Action Sequence</h4>
-                            <p>Motion-heavy scene with blend blur pooling effectiveness</p>
-                            <div class="placeholder-img">Figure 2 - Upload your image here</div>
-                        </div>
-                    </div>
-                    <div class="figure-caption">
-                        <strong>Question:</strong> "What action is taking place and how does it progress?"<br>
-                        <strong>POVQA Reasoning:</strong> The motion blur pooling captures the sequence dynamics...
-                    </div>
-                </div>
-
-                <div class="qual-figure">
-                    <div class="figure-placeholder">
-                        <div class="placeholder-content">
-                            <h4>Example 3: Temporal Reasoning</h4>
-                            <p>Long sequence requiring understanding of temporal relationships</p>
-                            <div class="placeholder-img">Figure 3 - Upload your image here</div>
-                        </div>
-                    </div>
-                    <div class="figure-caption">
-                        <strong>Question:</strong> "What events led to this outcome in the scene?"<br>
-                        <strong>POVQA Reasoning:</strong> By analyzing the pooled frames across time...
-                    </div>
-                </div>
-
-                <div class="qual-figure">
-                    <div class="figure-placeholder">
-                        <div class="placeholder-content">
-                            <h4>Example 4: Cross-Modal Understanding</h4>
-                            <p>Complex scene integrating visual and subtitle information</p>
-                            <div class="placeholder-img">Figure 4 - Upload your image here</div>
-                        </div>
-                    </div>
-                    <div class="figure-caption">
-                        <strong>Question:</strong> "How do the visual elements relate to the spoken dialogue?"<br>
-                        <strong>POVQA Reasoning:</strong> The interleaved subtitle-image alignment shows...
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Zero-shot TVQA Results -->
         <div class="content-section">
             <h2 class="section-title">Zero-shot TVQA Performance</h2>
             <div class="comparison-table">
@@ -633,10 +657,11 @@
         });
 
         // Add hover effects to cards
-        const cards = document.querySelectorAll('.result-card, .pooling-card, .contribution-card');
+        const cards = document.querySelectorAll('.result-card, .pooling-card, .contribution-card, .qual-figure');
         cards.forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-5px) scale(1.02)';
+                this.style.transition = 'transform 0.3s ease';
             });
             
             card.addEventListener('mouseleave', function() {
@@ -650,23 +675,31 @@
             rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const number = entry.target;
-                    const finalNumber = number.textContent;
+                    const numberEl = entry.target;
+                    const finalValue = numberEl.getAttribute('data-final-value') || numberEl.textContent;
+                    numberEl.setAttribute('data-final-value', finalValue); // Store original value
+                    
                     let current = 0;
-                    const increment = parseInt(finalNumber) / 50;
+                    const finalNumber = parseFloat(finalValue);
+                    const increment = Math.max(finalNumber / 50, 0.1);
                     
                     const timer = setInterval(() => {
                         current += increment;
-                        if (current >= parseInt(finalNumber)) {
-                            number.textContent = finalNumber;
+                        if (current >= finalNumber) {
+                            numberEl.textContent = finalValue;
                             clearInterval(timer);
                         } else {
-                            number.textContent = Math.floor(current) + (finalNumber.includes('%') ? '%' : finalNumber.includes('×') ? '×' : '');
+                            if (finalValue.includes('.')) {
+                                numberEl.textContent = current.toFixed(1) + (finalValue.includes('%') ? '%' : '');
+                            } else {
+                                numberEl.textContent = Math.floor(current) + (finalValue.includes('×') ? '×' : '');
+                            }
                         }
                     }, 20);
+                    observer.unobserve(numberEl); // Animate only once
                 }
             });
         }, observerOptions);
