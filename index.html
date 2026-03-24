@@ -21,6 +21,7 @@
             --border-color: #dee2e6;
             --success-background: #e8f4ec;
             --success-text: #1f6b3b;
+            --accent-gold: #c9971a;
         }
 
         * {
@@ -67,20 +68,35 @@
         }
         
         .venue {
-            display: inline-block;
-            background-color: #e9ecef;
-            color: var(--text-color-medium);
-            padding: 8px 20px;
-            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #fff6d8 0%, #ffe8a3 100%);
+            color: #6f4c00;
+            padding: 10px 22px;
+            border-radius: 999px;
             font-weight: 500;
             font-size: 1em;
             margin-bottom: 24px;
+            border: 1px solid rgba(201, 151, 26, 0.35);
+            box-shadow: 0 10px 24px rgba(201, 151, 26, 0.16);
         }
 
         .authors {
             font-size: 1.1em;
             color: var(--text-color-medium);
             margin-bottom: 30px;
+        }
+
+        .authors a {
+            color: var(--text-color-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .authors a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
         }
 
         .notice-banner {
@@ -374,8 +390,13 @@
         <div class="header">
             <h1 class="title">POVQA</h1>
             <p class="subtitle">Preference-Optimized Video Question Answering with Rationales for Data Efficiency</p>
-            <div class="venue">Accepted to the MAR Workshop at CVPR 2026</div>
-            <div class="authors">Ashim Dahal, Ankit Ghimire, Saydul Akbar Murad, Nick Rahimi</div>
+            <div class="venue"><i class="fa-solid fa-award"></i> Accepted to the MAR Workshop at CVPR 2026</div>
+            <div class="authors">
+                <a href="https://ashimdahal.github.io">Ashim Dahal</a>,
+                Ankit Ghimire,
+                <a href="https://saydulakbarmurad.com">Saydul Akbar Murad</a>,
+                <a href="https://nickrahimi.com">Nick Rahimi</a>
+            </div>
             <div class="notice-banner">Public release includes the paper, codebase, annotation files, and the preprocessed frame-and-subtitle alignment dataset used for training and evaluation.</div>
             <div class="links">
                 <a href="https://arxiv.org/abs/2510.01009" class="link-btn"><i class="fa-solid fa-file-lines"></i> Paper</a>
