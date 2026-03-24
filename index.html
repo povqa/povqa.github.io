@@ -6,14 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POVQA: Preference-Optimized Video Question Answering</title>
-    <!-- Using a professional, clean font like Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for clean icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* CSS Reset and Core Styles */
         :root {
             --primary-color: #0056b3; /* A more academic, deeper blue */
             --text-color-dark: #212529;
@@ -22,6 +19,8 @@
             --background-color: #ffffff;
             --section-background: #f8f9fa;
             --border-color: #dee2e6;
+            --success-background: #e8f4ec;
+            --success-text: #1f6b3b;
         }
 
         * {
@@ -82,6 +81,17 @@
             font-size: 1.1em;
             color: var(--text-color-medium);
             margin-bottom: 30px;
+        }
+
+        .notice-banner {
+            max-width: 860px;
+            margin: 0 auto 28px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: var(--success-background);
+            color: var(--success-text);
+            font-weight: 600;
+            border: 1px solid rgba(31, 107, 59, 0.18);
         }
 
         .links {
@@ -194,10 +204,58 @@
             line-height: 1.4;
         }
 
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .resource-card {
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 26px;
+        }
+
+        .resource-card h3 {
+            font-size: 1.15em;
+            color: var(--text-color-dark);
+            margin-bottom: 10px;
+        }
+
+        .resource-card p {
+            margin-bottom: 14px;
+        }
+
+        .resource-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+
+        .citation-block {
+            background: #0f172a;
+            color: #e2e8f0;
+            border-radius: 10px;
+            padding: 24px;
+            overflow-x: auto;
+        }
+
+        .citation-block pre {
+            margin: 0;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.95em;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
         /* Qualitative Results Section - RESTRUCTURED */
         .qualitative-grid {
             display: grid;
-            /* grid-template-columns: 1fr 1fr; */
             gap: 40px;
         }
 
@@ -316,15 +374,14 @@
         <div class="header">
             <h1 class="title">POVQA</h1>
             <p class="subtitle">Preference-Optimized Video Question Answering with Rationales for Data Efficiency</p>
-            <div class="venue">WACV 2026 Applications Track</div>
-            <div class="authors">Anonymous Submission</div>
+            <div class="venue">Accepted to the MAR Workshop at CVPR 2026</div>
+            <div class="authors">Ashim Dahal, Ankit Ghimire, Saydul Akbar Murad, Nick Rahimi</div>
+            <div class="notice-banner">Public release includes the paper, codebase, annotation files, and the preprocessed frame-and-subtitle alignment dataset used for training and evaluation.</div>
             <div class="links">
                 <a href="https://arxiv.org/abs/2510.01009" class="link-btn"><i class="fa-solid fa-file-lines"></i> Paper</a>
-                <a href="#" class="link-btn"><i class="fa-brands fa-github"></i> Code (available to reviewers via supplemental materials)</a>
-                <a href="#" class="link-btn secondary"><i class="fa-solid fa-display"></i> Demo (coming soon)</a>
-                <a href="./annotations.zip" class="link-btn secondary"><i class="fa-solid fa-database"></i> Dataset annotations</a>
-                <a href="#" class="link-btn secondary"><i class="fa-solid fa-display"></i> Encoded Frames (coming soon)</a>
-                
+                <a href="https://github.com/ashimdahal/POVQA" class="link-btn"><i class="fa-brands fa-github"></i> GitHub Repository</a>
+                <a href="https://huggingface.co/datasets/ashimdahal/povqa-preprocessed" class="link-btn secondary"><i class="fa-solid fa-database"></i> Preprocessed Frames</a>
+                <a href="./annotations.zip" class="link-btn secondary"><i class="fa-solid fa-file-zipper"></i> Annotations</a>
             </div>
         </div>
 
@@ -333,6 +390,32 @@
             <p class="abstract">
                 We introduce <span class="highlight">POVQA</span>, a data-efficient pipeline for video question answering that addresses the critical challenge of <span class="highlight">long video understanding</span>. Our method compresses each second of video into a single temporally pooled image via motion blur and weighted averaging variants, then aligns Large Vision-Language Models with lightweight supervision. We achieve a <span class="highlight">23× reduction in context tokens</span> while maintaining comprehensive temporal coverage. Using our novel <span class="highlight">ReasonVQA dataset</span> with only 239 human-annotated QA pairs, we demonstrate dramatic improvements: F1 score from 0.212 to 0.543, BLEU-4 from 0.031 to 0.291, and ROUGE-L from 0.196 to 0.528. Zero-shot evaluation on TVQA achieves <span class="highlight">64.7% accuracy</span>, surpassing prior zero-shot methods.
             </p>
+        </div>
+
+        <div class="content-section alt-bg">
+            <h2 class="section-title">Resources</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Paper</h3>
+                    <p>The current public paper version is the arXiv preprint.</p>
+                    <a href="https://arxiv.org/abs/2510.01009">Read on arXiv</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Code</h3>
+                    <p>The full training, evaluation, preprocessing, and visualization code is available on GitHub.</p>
+                    <a href="https://github.com/ashimdahal/POVQA">Open the repository</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Preprocessed Dataset</h3>
+                    <p>The released Hugging Face dataset contains the preprocessed frame bundles and subtitle-frame alignment metadata used by POVQA.</p>
+                    <a href="https://huggingface.co/datasets/ashimdahal/povqa-preprocessed">Browse the dataset</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Annotations</h3>
+                    <p>ReasonVQA annotations are available directly from this project page as a zip archive.</p>
+                    <a href="./annotations.zip">Download annotations.zip</a>
+                </div>
+            </div>
         </div>
 
         <div class="content-section alt-bg">
@@ -525,12 +608,27 @@
                 </table>
             </div>
         </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Citation</h2>
+            <p style="font-size: 1.05em; margin-bottom: 18px;">
+                Please cite the current arXiv version for now. This can be updated once the workshop proceedings citation is available.
+            </p>
+            <div class="citation-block">
+<pre>@article{dahal2025povqa,
+  title   = {POVQA: Preference-Optimized Video Question Answering with Rationales for Data Efficiency},
+  author  = {Dahal, Ashim and Ghimire, Ankit and Murad, Saydul Akbar and Rahimi, Nick},
+  journal = {arXiv preprint arXiv:2510.01009},
+  year    = {2025},
+  url     = {https://arxiv.org/abs/2510.01009}
+}</pre>
+            </div>
+        </div>
     </div>
 
     <div class="footer">
-        <p>POVQA: Preference-Optimized Video Question Answering | WACV 2026 Applications Track</p>
+        <p>POVQA: Preference-Optimized Video Question Answering | MAR Workshop at CVPR 2026</p>
     </div>
 
 </body>
 </html>
-
